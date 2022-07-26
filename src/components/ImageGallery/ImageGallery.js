@@ -4,25 +4,25 @@ import { ImageGalleryList } from 'components/ImageGalleryItem/ImageGalleryItem.s
 
 
 export const ImageGallery = ({ pictures, onClick }) => {
-    return (
-        <ImageGalleryList>
-            {pictures.map(({ id, webformatURL, largeImageURL, tags }) => (
-                <ImageGalleryItem
-                    key={id}
-                    webformatURL={webformatURL}
-                    largeImageURL={largeImageURL}
-                    tags={tags}
-                    largeImage={onClick}
-                />
-            ))}
-        </ImageGalleryList>
-    );
+  return (
+    <ImageGalleryList>
+      {pictures.map(({ id, webformatURL, largeImageURL, tags }) => (
+        <ImageGalleryItem
+          key={id}
+          webformatURL={webformatURL}
+          largeImageURL={largeImageURL}
+          tags={tags}
+          largeImage={onClick}
+        />
+      ))}
+    </ImageGalleryList>
+  );
 };
 
 ImageGallery.propTypes = {
     pictures: PropTypes.arrayOf(
         PropTypes.shape({
-            id: PropTypes.string.isRequired,
+            id: PropTypes.number.isRequired,
             webformatURL: PropTypes.string.isRequired,
             largeImageURL: PropTypes.string.isRequired,
             tags: PropTypes.string.isRequired,

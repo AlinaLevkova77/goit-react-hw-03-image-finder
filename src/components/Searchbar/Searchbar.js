@@ -1,8 +1,8 @@
 import { Component } from 'react';
 import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
-// import { FcSearch } from 'react-icons/fc';
-import { SearchForm,SearchbarHeader,SearchButton,SearchFormBtnLabel,SearchFormInput} from 'components/Searchbar/Searchbar.styled.js';
+import { FcSearch } from 'react-icons/fc';
+import { SearchForm,SearchbarHeader,SearchButton,SearchFormSpan,SearchFormInput} from 'components/Searchbar/Searchbar.styled.js';
 
  export default class Searchbar extends Component {
     state = {
@@ -29,8 +29,8 @@ import { SearchForm,SearchbarHeader,SearchButton,SearchFormBtnLabel,SearchFormIn
             <SearchbarHeader>
                 <SearchForm onSubmit ={this.handleFormSubmit}>
                     <SearchButton type="submit">
-                        {/* <FcSearch/> */}
-                            <SearchFormBtnLabel></SearchFormBtnLabel>
+                        <FcSearch />
+                            <SearchFormSpan></SearchFormSpan>
                            
                     </SearchButton>
 

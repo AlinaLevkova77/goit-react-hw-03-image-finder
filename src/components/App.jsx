@@ -13,22 +13,18 @@ axios.defaults.baseURL ='https://pixabay.com/api/';
 
 
  export default class App extends Component {
-  state = {
+    state = {
     searchItem: '',
     items: [],
     status: 'idle',
+    error: null,
     page: 1,
     showModal: false,
-    imageModal: false,
-    error: null,
+    imageModal: null,
   };
 
-  toggleModal = largeImageURL => {
-    this.setState(({ showModal }) => ({
-      showModal: !showModal,
-    }));
-    this.setState({ imageModal: largeImageURL });
-  };
+ 
+   
   handleFormSubmit = searchItem => {
     this.setState({
       searchItem,
@@ -82,6 +78,10 @@ axios.defaults.baseURL ='https://pixabay.com/api/';
     }));
   };
    
+     toggleModal = largeImageURL => {
+    this.setState(prevState=>({showModal: !prevState.showModal}))
+     };
+   
   render() {
     const { items, status,showModal,imageModal } = this.state;
     return (
@@ -90,11 +90,11 @@ axios.defaults.baseURL ='https://pixabay.com/api/';
         <ImageGallery pictures={items} onClick={this.toggleModal} />
         {status === 'pending' && <Loader />}
         {(items.length === 12 || items.length > 12) && (
-          <Button onClick={this.loadMore}/>
+          <Button onClick={this.loadMore} />
         )}
-        {showModal && (
+         {showModal && (
           <Modal onClose={this.toggleModal}>
-            <img src ={imageModal} alt=''/>
+            <img src={imageModal} alt='' />
           </Modal>
         )}
         

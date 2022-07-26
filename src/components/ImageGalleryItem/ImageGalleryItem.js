@@ -1,3 +1,4 @@
+
 import PropTypes from 'prop-types';
 import { ImageGalleryItems,ImageGalleryImage } from 'components/ImageGalleryItem/ImageGalleryItem.styled.js';
 
