@@ -1,6 +1,9 @@
 
 import PropTypes from 'prop-types';
-import { ImageGalleryItems,ImageGalleryImage } from 'components/ImageGalleryItem/ImageGalleryItem.styled.js';
+import {
+    ImageGalleryItems,
+     ImageGalleryImage
+} from 'components/ImageGalleryItem/ImageGalleryItem.styled.js';
 
 export const ImageGalleryItem = ({ 
     id,
@@ -8,12 +11,14 @@ export const ImageGalleryItem = ({
     largeImageURL,
     tags,
     largeImage,
+    onClick
  }) => {
     return (
         <ImageGalleryItems  key={id} onClick={()=>largeImage(largeImageURL)}>
             <ImageGalleryImage
                 src={webformatURL}
                 alt={tags}
+                onClick ={()=> onClick(largeImageURL)}
             />
         </ImageGalleryItems>
     )

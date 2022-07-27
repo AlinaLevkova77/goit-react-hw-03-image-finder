@@ -3,11 +3,12 @@ import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
 import { ImageGalleryList } from 'components/ImageGalleryItem/ImageGalleryItem.styled.js';
 
 
-export const ImageGallery = ({ pictures, onClick }) => {
+export const ImageGallery = ({ pictures, onClick,havdleImageModal }) => {
   return (
     <ImageGalleryList>
       {pictures.map(({ id, webformatURL, largeImageURL, tags }) => (
-        <ImageGalleryItem
+          <ImageGalleryItem
+          onClick={havdleImageModal}
           key={id}
           webformatURL={webformatURL}
           largeImageURL={largeImageURL}

@@ -32,6 +32,10 @@ axios.defaults.baseURL ='https://pixabay.com/api/';
       page: 1,
     });
   };
+   
+   havdleImageModal = imageModal => {
+     this.setState({ imageModal });
+   };
 
   async componentDidUpdate(prevProps, prevState) {
     const prevName = prevState.searchItem;
@@ -78,7 +82,7 @@ axios.defaults.baseURL ='https://pixabay.com/api/';
     }));
   };
    
-     toggleModal = largeImageURL => {
+     toggleModal = () => {
     this.setState(prevState=>({showModal: !prevState.showModal}))
      };
    
@@ -87,15 +91,17 @@ axios.defaults.baseURL ='https://pixabay.com/api/';
     return (
       <div>
         <Searchbar onSubmit={this.handleFormSubmit} />
-        <ImageGallery pictures={items} onClick={this.toggleModal} />
+        <ImageGallery
+          pictures={items}
+          onClick={this.toggleModal}
+          havdleImageModal={this.havdleImageModal}
+        />
         {status === 'pending' && <Loader />}
         {(items.length === 12 || items.length > 12) && (
           <Button onClick={this.loadMore} />
         )}
          {showModal && (
-          <Modal onClose={this.toggleModal}>
-            <img src={imageModal} alt='' />
-          </Modal>
+          <Modal onClose={this.toggleModal} imageModal={imageModal}/>
         )}
         
        <ToastContainer autoClose ={3000} position='top-center'/>
